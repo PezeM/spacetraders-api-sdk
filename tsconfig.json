@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "lib": ["es2020"],
+    "module": "commonjs",
+    "target": "ES5",
+    "outDir": "./lib",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
+}
