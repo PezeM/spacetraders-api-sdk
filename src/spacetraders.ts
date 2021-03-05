@@ -1,5 +1,5 @@
-import { User } from "./user";
-import { Game } from "./game";
+import { User } from './user';
+import { Game } from './game';
 
 export class Spacetraders {
   public readonly user: User;

@@ -9,7 +9,7 @@ export abstract class Endpoint {
     return this.makeRequest<T>(endpoint, 'GET', token);
   }
 
-  protected async post<T>(endpoint: string, token: string, body?: Object): Promise<T> {
+  protected async post<T>(endpoint: string, token: string, body?: Record<string, unknown>): Promise<T> {
     return this.makeRequest<T>(endpoint, 'POST', token, body);
   }
 
@@ -17,7 +17,7 @@ export abstract class Endpoint {
     endpoint: string,
     requestMethod: RequestMethod,
     token?: string,
-    body?: Object,
+    body?: Record<string, unknown>,
   ): Promise<T> {
     const headers: Record<string, string> = {};
 

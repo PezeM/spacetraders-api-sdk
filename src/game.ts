@@ -6,8 +6,8 @@ import {
   LocationInfoResponse,
   LocationsResponse,
   MarketplaceResponse,
-  StatusResponse
-} from "./types";
+  StatusResponse,
+} from './types';
 
 export class Game extends Endpoint {
   async getStatus(): Promise<StatusResponse> {
