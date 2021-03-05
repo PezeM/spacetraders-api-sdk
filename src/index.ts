@@ -1,1 +1,2 @@
-export const Test = (b: string) => `test ${b}`;
+export * from './types';
+export * from './spacetraders';
