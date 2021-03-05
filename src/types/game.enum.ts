@@ -9,3 +9,15 @@ export enum AsteroidType {
   ASTEROID = 'ASTEROID',
   GAS_GIANT = 'GAS_GIANT',
 }
+
+export enum GoodType {
+  FUEL = 'FUEL',
+  METALS = 'METALS',
+  WORKERS = 'WORKERS',
+  FOOD = 'FOOD',
+  RESEARCH = 'RESEARCH',
+  CHEMICALS = 'CHEMICALS',
+  MACHINERY = 'MACHINERY',
+  SHIP_PARTS = 'SHIP_PARTS',
+  ELECTRONICS = 'ELECTRONICS'
+}

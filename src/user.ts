@@ -1,12 +1,69 @@
 import { Endpoint } from './endpoint';
-import { ShipsResponse, UserResponse } from './types';
+import {
+  FlightPlanResponse,
+  GoodType,
+  LoanType,
+  RegisterUserResponse,
+  SellOrderResponse,
+  ShipsResponse,
+  User,
+  UserResponse,
+} from './types';
+import { UserLoan } from '../lib';
 
-export class User extends Endpoint {
+export class UserEndpoint extends Endpoint {
+  async registerUser(username: string): Promise<RegisterUserResponse> {
+    return this.post<RegisterUserResponse>(`users/${username}`);
+  }
+
   async getUser(token: string, username: string): Promise<UserResponse> {
-    return await this.get<UserResponse>(`users/${username}`, token);
+    return this.get<UserResponse>(`users/${username}`, token);
+  }
+
+  async takeoutLoan(token: string, username: string, type: LoanType): Promise<User> {
+    return this.post<User>(`users/${username}/loans`, token, { type });
+  }
+
+  async getLoans(token: string, username: string): Promise<UserLoan> {
+    return this.get<UserLoan>(`users/${username}/loans`, token);
+  }
+
+  async payLoan(token: string, username: string, loanId: string) {
+    return this.put(`users/${username}/loans/${loanId}`, token);
   }
 
   async getShips(token: string, username: string): Promise<ShipsResponse> {
-    return await this.get<ShipsResponse>(`users/${username}/ships`, token);
+    return this.get<ShipsResponse>(`users/${username}/ships`, token);
+  }
+
+  async buyShip(token: string, username: string, location: string, shipType: string): Promise<User> {
+    return this.post<User>(`users/${username}/ships`, token, { location, type: shipType });
+  }
+
+  async buyGood(token: string, username: string, shipId: string, quantity: number, good: GoodType): Promise<User> {
+    return this.post<User>(`users/${username}/purchase-orders`, token, { shipId, quantity, good });
+  }
+
+  async sellGood(
+    token: string,
+    username: string,
+    shipId: string,
+    quantity: number,
+    good: GoodType,
+  ): Promise<SellOrderResponse> {
+    return this.post<SellOrderResponse>(`users/${username}/sell-orders`, token, { shipId, quantity, good });
+  }
+
+  async createFlightPlan(
+    token: string,
+    username: string,
+    shipId: string,
+    destination: string,
+  ): Promise<FlightPlanResponse> {
+    return this.post<FlightPlanResponse>(`users/${username}/flight-plans`, token, { shipId, destination });
+  }
+
+  async flightPlanInfo(token: string, username: string, flightPlanId: string): Promise<FlightPlanResponse> {
+    return this.get<FlightPlanResponse>(`users/${username}/flight-plans/${flightPlanId}`, token);
   }
 }

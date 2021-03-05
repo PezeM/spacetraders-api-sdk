@@ -1,12 +1,12 @@
-import { User } from './user';
-import { Game } from './game';
+import { UserEndpoint } from './user';
+import { GameEndpoint } from './gameEndpoint';
 
 export class Spacetraders {
-  public readonly user: User;
-  public readonly game: Game;
+  public readonly user: UserEndpoint;
+  public readonly game: GameEndpoint;
 
   constructor() {
-    this.user = new User();
-    this.game = new Game();
+    this.user = new UserEndpoint();
+    this.game = new GameEndpoint();
   }
 }

@@ -61,3 +61,14 @@ export interface ShopShip {
 export interface AvailableShipsResponse {
   ships: ShopShip[];
 }
+
+export interface FlightPlan {
+  arrivesAt: Date;
+  destination: string;
+  fuelConsumed: number;
+  fuelRemaining: number;
+  id: string;
+  ship: string;
+  terminatedAt: null;
+  timeRemainingInSeconds: number;
+}

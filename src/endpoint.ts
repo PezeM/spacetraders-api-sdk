@@ -1,6 +1,6 @@
 import fetch from 'node-fetch';
 
-type RequestMethod = 'POST' | 'GET';
+type RequestMethod = 'POST' | 'GET' | 'PUT';
 
 const API_URL = 'https://api.spacetraders.io';
 
@@ -9,8 +9,12 @@ export abstract class Endpoint {
     return this.makeRequest<T>(endpoint, 'GET', token);
   }
 
-  protected async post<T>(endpoint: string, token: string, body?: Record<string, unknown>): Promise<T> {
+  protected async post<T>(endpoint: string, token?: string, body?: Record<string, unknown>): Promise<T> {
     return this.makeRequest<T>(endpoint, 'POST', token, body);
+  }
+
+  protected async put<T>(endpoint: string, token?: string, body?: Record<string, unknown>): Promise<T> {
+    return this.makeRequest<T>(endpoint, 'PUT', token, body);
   }
 
   private async makeRequest<T>(
