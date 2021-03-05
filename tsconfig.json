@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "lib": ["es2020"],
-    "module": "ESNext",
-    "target": "ES6",
+    "lib": ["ES5"],
+    "module": "CommonJS",
+    "target": "ES5",
     "outDir": "./lib",
     "sourceMap": true,
     "strict": true,
