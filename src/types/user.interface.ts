@@ -1,5 +1,5 @@
 import { GoodType, LoanType } from './game.enum';
-import { FlightPlan } from "./game.interface";
+import { FlightPlan } from './game.interface';
 
 export interface Cargo {
   good: string;
