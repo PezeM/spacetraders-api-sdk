@@ -1,2 +1,2 @@
 export * from './types';
-export * from './spacetraders';
+export { Spacetraders } from './spacetraders';
