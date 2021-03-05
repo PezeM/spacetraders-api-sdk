@@ -1,6 +1,6 @@
 # Spacetrades typescript api sdk
 
-SDK written in typescript for [spacetraders](spacetraders.io)
+SDK written in typescript for [spacetraders](https://spacetraders.io)
 
 ## Installation
 
