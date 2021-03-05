@@ -1,5 +1,5 @@
 import { UserEndpoint } from './user';
-import { GameEndpoint } from './gameEndpoint';
+import { GameEndpoint } from './game';
 
 export class Spacetraders {
   public readonly user: UserEndpoint;

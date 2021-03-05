@@ -7,9 +7,9 @@ import {
   SellOrderResponse,
   ShipsResponse,
   User,
+  UserLoan,
   UserResponse,
 } from './types';
-import { UserLoan } from '../lib';
 
 export class UserEndpoint extends Endpoint {
   async registerUser(username: string): Promise<RegisterUserResponse> {
