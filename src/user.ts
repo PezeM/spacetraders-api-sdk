@@ -20,8 +20,8 @@ export class UserEndpoint extends Endpoint {
     return this.get<UserResponse>(`users/${username}`, token);
   }
 
-  async takeoutLoan(token: string, username: string, type: LoanType): Promise<User> {
-    return this.post<User>(`users/${username}/loans`, token, { type });
+  async takeoutLoan(token: string, username: string, type: LoanType): Promise<UserResponse> {
+    return this.post<UserResponse>(`users/${username}/loans`, token, { type });
   }
 
   async getLoans(token: string, username: string): Promise<UserLoan> {
@@ -36,8 +36,8 @@ export class UserEndpoint extends Endpoint {
     return this.get<ShipsResponse>(`users/${username}/ships`, token);
   }
 
-  async buyShip(token: string, username: string, location: string, shipType: string): Promise<User> {
-    return this.post<User>(`users/${username}/ships`, token, { location, type: shipType });
+  async buyShip(token: string, username: string, location: string, shipType: string): Promise<UserResponse> {
+    return this.post<UserResponse>(`users/${username}/ships`, token, { location, type: shipType });
   }
 
   async buyGood(token: string, username: string, shipId: string, quantity: number, good: GoodType): Promise<User> {
