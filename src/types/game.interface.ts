@@ -34,12 +34,12 @@ export interface Marketplace {
   symbol: string;
 }
 
-interface MarketplacePlanet extends Location {
+export interface PlanetMarketplace extends Location {
   marketplace: Marketplace[];
 }
 
 export interface MarketplaceResponse {
-  planet: MarketplacePlanet;
+  planet: PlanetMarketplace;
 }
 
 export interface PurchaseLocation {
