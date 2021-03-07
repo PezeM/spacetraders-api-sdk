@@ -1,5 +1,6 @@
 import { GoodType, LoanType } from './game.enum';
 import { FlightPlan } from './game.interface';
+import { LoanStatus } from './user.enum';
 
 export interface Cargo {
   good: string;
@@ -25,7 +26,7 @@ export interface UserLoan {
   type: LoanType;
   due: string;
   repaymentAmount: boolean;
-  status: number;
+  status: LoanStatus;
 }
 
 export interface User {

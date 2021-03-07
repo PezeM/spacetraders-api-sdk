@@ -28,8 +28,8 @@ export class UserEndpoint extends Endpoint {
     return this.get<UserLoan>(`users/${username}/loans`, token);
   }
 
-  async payLoan(token: string, username: string, loanId: string) {
-    return this.put(`users/${username}/loans/${loanId}`, token);
+  async payLoan(token: string, username: string, loanId: string): Promise<UserResponse> {
+    return this.put<Promise<UserResponse>>(`users/${username}/loans/${loanId}`, token);
   }
 
   async getShips(token: string, username: string): Promise<ShipsResponse> {
