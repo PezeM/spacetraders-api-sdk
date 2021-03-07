@@ -13,7 +13,7 @@ import {
 
 export class UserEndpoint extends Endpoint {
   async registerUser(username: string): Promise<RegisterUserResponse> {
-    return this.post<RegisterUserResponse>(`users/${username}`);
+    return this.post<RegisterUserResponse>(`users/${username}/token`);
   }
 
   async getUser(token: string, username: string): Promise<UserResponse> {
