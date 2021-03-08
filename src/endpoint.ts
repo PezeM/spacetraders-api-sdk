@@ -1,4 +1,5 @@
 import fetch from 'node-fetch';
+import { RequestError } from "./requestError";
 
 type RequestMethod = 'POST' | 'GET' | 'PUT';
 
@@ -40,7 +41,7 @@ export abstract class Endpoint {
     });
 
     if (!response.ok) {
-      throw new Error(response.statusText);
+      throw new RequestError(response.statusText, response.status,  await response.json());
     }
 
     return (await response.json()) as Promise<T>;

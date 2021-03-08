@@ -29,9 +29,10 @@ export interface LocationInfoResponse {
 }
 
 export interface Marketplace {
-  available: number;
+  quantityAvailable: number;
   pricePerUnit: number;
   symbol: GoodType;
+  volumePerUnit: number;
 }
 
 export interface PlanetMarketplace extends Location {
@@ -63,13 +64,15 @@ export interface AvailableShipsResponse {
 }
 
 export interface FlightPlan {
-  arrivesAt: Date;
-  destination: string;
-  fuelConsumed: number;
-  fuelRemaining: number;
   id: string;
   ship: string;
-  terminatedAt: null;
+  arrivesAt: Date;
+  destination: string;
+  departure: string;
+  fuelConsumed: number;
+  fuelRemaining: number;
+  terminatedAt: null | Date;
+  distance: number;
   timeRemainingInSeconds: number;
 }
 

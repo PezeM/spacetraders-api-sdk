@@ -5,6 +5,7 @@ import { LoanStatus } from './user.enum';
 export interface Cargo {
   good: string;
   quantity: number;
+  totalVolume: number;
 }
 
 export interface UserShip {
@@ -19,6 +20,8 @@ export interface UserShip {
   speed: number;
   type: string;
   weapons: number;
+  x: number;
+  y: number;
 }
 
 export interface UserLoan {
