@@ -1,5 +1,5 @@
 import { LoanType } from './game.enum';
-import { FlightPlan, Order } from "./game.interface";
+import { FlightPlan, Order } from './game.interface';
 import { LoanStatus } from './user.enum';
 
 export interface Cargo {

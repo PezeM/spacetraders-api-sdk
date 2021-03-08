@@ -2,14 +2,15 @@ import { Endpoint } from './endpoint';
 import {
   FlightPlanResponse,
   GoodType,
-  LoanType, OrderResponse,
+  LoanType,
+  OrderResponse,
   RegisterUserResponse,
   SellOrderResponse,
   ShipsResponse,
   User,
   UserLoan,
-  UserResponse
-} from "./types";
+  UserResponse,
+} from './types';
 
 export class UserEndpoint extends Endpoint {
   async registerUser(username: string): Promise<RegisterUserResponse> {
@@ -40,7 +41,13 @@ export class UserEndpoint extends Endpoint {
     return this.post<UserResponse>(`users/${username}/ships`, token, { location, type: shipType });
   }
 
-  async buyGood(token: string, username: string, shipId: string, quantity: number, good: GoodType): Promise<OrderResponse> {
+  async buyGood(
+    token: string,
+    username: string,
+    shipId: string,
+    quantity: number,
+    good: GoodType,
+  ): Promise<OrderResponse> {
     return this.post<OrderResponse>(`users/${username}/purchase-orders`, token, { shipId, quantity, good });
   }
 
