@@ -1,4 +1,4 @@
-import { AsteroidType, LoanType } from './game.enum';
+import { AsteroidType, GoodType, LoanType } from "./game.enum";
 
 export interface StatusResponse {
   status: string;
@@ -31,7 +31,7 @@ export interface LocationInfoResponse {
 export interface Marketplace {
   available: number;
   pricePerUnit: number;
-  symbol: string;
+  symbol: GoodType;
 }
 
 export interface PlanetMarketplace extends Location {
