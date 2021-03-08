@@ -1,4 +1,4 @@
-import { AsteroidType, GoodType, LoanType } from "./game.enum";
+import { AsteroidType, GoodType, LoanType } from './game.enum';
 
 export interface StatusResponse {
   status: string;
