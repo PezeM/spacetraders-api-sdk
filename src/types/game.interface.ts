@@ -72,3 +72,10 @@ export interface FlightPlan {
   terminatedAt: null;
   timeRemainingInSeconds: number;
 }
+
+export interface Order {
+  good: GoodType;
+  quantity: number;
+  pricePerUnit: number;
+  total: number;
+}

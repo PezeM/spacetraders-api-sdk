@@ -1,5 +1,5 @@
-import { GoodType, LoanType } from './game.enum';
-import { FlightPlan } from './game.interface';
+import { LoanType } from './game.enum';
+import { FlightPlan, Order } from "./game.interface";
 import { LoanStatus } from './user.enum';
 
 export interface Cargo {
@@ -59,17 +59,12 @@ export interface RegisterUserResponse {
   user: CreatedUser;
 }
 
-export interface SellOrderResponse {
-  credits: number;
-  order: {
-    good: GoodType;
-    pricePerUnit: number;
-    quantity: number;
-    total: number;
-  }[];
-  ship: UserShip;
-}
-
 export interface FlightPlanResponse {
   flightPlan: FlightPlan;
+}
+
+export interface OrderResponse {
+  order: Order;
+  credits: number;
+  ship: UserShip;
 }

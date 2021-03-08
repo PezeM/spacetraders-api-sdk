@@ -2,14 +2,14 @@ import { Endpoint } from './endpoint';
 import {
   FlightPlanResponse,
   GoodType,
-  LoanType,
+  LoanType, OrderResponse,
   RegisterUserResponse,
   SellOrderResponse,
   ShipsResponse,
   User,
   UserLoan,
-  UserResponse,
-} from './types';
+  UserResponse
+} from "./types";
 
 export class UserEndpoint extends Endpoint {
   async registerUser(username: string): Promise<RegisterUserResponse> {
@@ -40,8 +40,8 @@ export class UserEndpoint extends Endpoint {
     return this.post<UserResponse>(`users/${username}/ships`, token, { location, type: shipType });
   }
 
-  async buyGood(token: string, username: string, shipId: string, quantity: number, good: GoodType): Promise<User> {
-    return this.post<User>(`users/${username}/purchase-orders`, token, { shipId, quantity, good });
+  async buyGood(token: string, username: string, shipId: string, quantity: number, good: GoodType): Promise<OrderResponse> {
+    return this.post<OrderResponse>(`users/${username}/purchase-orders`, token, { shipId, quantity, good });
   }
 
   async sellGood(
@@ -50,8 +50,8 @@ export class UserEndpoint extends Endpoint {
     shipId: string,
     quantity: number,
     good: GoodType,
-  ): Promise<SellOrderResponse> {
-    return this.post<SellOrderResponse>(`users/${username}/sell-orders`, token, { shipId, quantity, good });
+  ): Promise<OrderResponse> {
+    return this.post<OrderResponse>(`users/${username}/sell-orders`, token, { shipId, quantity, good });
   }
 
   async createFlightPlan(
