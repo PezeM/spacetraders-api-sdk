@@ -5,9 +5,7 @@ import {
   LoanType,
   OrderResponse,
   RegisterUserResponse,
-  SellOrderResponse,
   ShipsResponse,
-  User,
   UserLoan,
   UserResponse,
 } from './types';
