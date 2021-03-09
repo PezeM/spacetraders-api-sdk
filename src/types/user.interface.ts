@@ -1,4 +1,4 @@
-import { GoodType, LoanType } from "./game.enum";
+import { GoodType, LoanType } from './game.enum';
 import { FlightPlan, Order } from './game.interface';
 import { LoanStatus } from './user.enum';
 
