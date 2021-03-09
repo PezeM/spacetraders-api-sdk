@@ -67,7 +67,7 @@ export interface FlightPlanResponse {
 }
 
 export interface OrderResponse {
-  order: Order;
+  order: Order[];
   credits: number;
   ship: UserShip;
 }
