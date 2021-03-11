@@ -1,6 +1,6 @@
-import { UserEndpoint } from "../user";
-import { GameEndpoint } from "../game";
-import Bottleneck from "bottleneck";
+import { UserEndpoint } from '../user';
+import { GameEndpoint } from '../game';
+import Bottleneck from 'bottleneck';
 
 export interface ISpacetraders {
   readonly user: UserEndpoint;
