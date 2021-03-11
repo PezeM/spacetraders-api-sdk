@@ -20,28 +20,28 @@ export class GameEndpoint extends Endpoint {
     return status?.status === 'spacetraders is currently online and available to play';
   }
 
-  async getAvailableLoans(token: string): Promise<AvailableLoanResponse> {
-    return this.get<AvailableLoanResponse>('game/loans', token);
+  async getAvailableLoans(): Promise<AvailableLoanResponse> {
+    return this.get<AvailableLoanResponse>('game/loans');
   }
 
-  async getLocations(token: string, symbol: string, type?: AsteroidType): Promise<LocationsResponse> {
+  async getLocations(symbol: string, type?: AsteroidType): Promise<LocationsResponse> {
     const url = type ? `game/systems/${symbol}/locations?type=${type}` : `game/systems/${symbol}/locations`;
-    return this.get<LocationsResponse>(url, token);
+    return this.get<LocationsResponse>(url);
   }
 
-  async getLocationInfo(token: string, symbol: string): Promise<LocationInfoResponse> {
-    return this.get<LocationInfoResponse>(`game/locations/${symbol}`, token);
+  async getLocationInfo(symbol: string): Promise<LocationInfoResponse> {
+    return this.get<LocationInfoResponse>(`game/locations/${symbol}`);
   }
 
-  async getLocationMarketplace(token: string, symbol: string): Promise<MarketplaceResponse> {
-    return this.get<MarketplaceResponse>(`game/locations/${symbol}/marketplace`, token);
+  async getLocationMarketplace(symbol: string): Promise<MarketplaceResponse> {
+    return this.get<MarketplaceResponse>(`game/locations/${symbol}/marketplace`);
   }
 
-  async getAvailableShips(token: string): Promise<AvailableShipsResponse> {
-    return this.get<AvailableShipsResponse>('game/ships', token);
+  async getAvailableShips(): Promise<AvailableShipsResponse> {
+    return this.get<AvailableShipsResponse>('game/ships');
   }
 
-  async getAllActiveFlightPlans(token: string, symbol: string): Promise<ActiveFlightPlansResponse> {
+  async getAllActiveFlightPlans(symbol: string): Promise<ActiveFlightPlansResponse> {
     return this.get<ActiveFlightPlansResponse>(`game/systems/${symbol}/flight-plans`);
   }
 }

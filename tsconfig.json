@@ -11,7 +11,8 @@
     "forceConsistentCasingInFileNames": true,
     "declaration": true,
     "removeComments": false,
-    "moduleResolution": "Node"
+    "moduleResolution": "Node",
+    "strictPropertyInitialization": false
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules, lib"]
