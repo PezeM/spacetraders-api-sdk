@@ -1,5 +1,6 @@
 import { Endpoint } from './endpoint';
 import {
+  ActiveFlightPlansResponse,
   AsteroidType,
   AvailableLoanResponse,
   AvailableShipsResponse,
@@ -38,5 +39,9 @@ export class GameEndpoint extends Endpoint {
 
   async getAvailableShips(token: string): Promise<AvailableShipsResponse> {
     return this.get<AvailableShipsResponse>('game/ships', token);
+  }
+
+  async getAllActiveFlightPlans(token: string, symbol: string): Promise<ActiveFlightPlansResponse> {
+    return this.get<ActiveFlightPlansResponse>(`game/systems/${symbol}/flight-plans`);
   }
 }

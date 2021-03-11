@@ -82,3 +82,17 @@ export interface Order {
   pricePerUnit: number;
   total: number;
 }
+
+export interface ActiveFlightPlan {
+  id: string;
+  createdAt: Date;
+  arrivesAt: Date;
+  from: string;
+  to: string;
+  username: string;
+  shipType: string;
+}
+
+export interface ActiveFlightPlansResponse {
+  flightPlans: ActiveFlightPlan[];
+}
