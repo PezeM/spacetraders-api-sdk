@@ -10,7 +10,7 @@ export interface Cargo {
 
 export interface UserShip {
   id: string;
-  location: string;
+  location?: string;
   cargo: Cargo[];
   class: string;
   manufacturer: string;

@@ -19,7 +19,7 @@ export class UserEndpoint extends Endpoint {
     return this.get<UserResponse>(`users/${username}`, token);
   }
 
-  async takeoutLoan(token: string, username: string, type: LoanType): Promise<UserResponse> {
+  async requestLoan(token: string, username: string, type: LoanType): Promise<UserResponse> {
     return this.post<UserResponse>(`users/${username}/loans`, token, { type });
   }
 
