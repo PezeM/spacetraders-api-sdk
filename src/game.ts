@@ -4,11 +4,12 @@ import {
   AsteroidType,
   AvailableLoanResponse,
   AvailableShipsResponse,
-  LocationInfoResponse, LocationsDockedShipsResponse,
+  LocationInfoResponse,
+  LocationsDockedShipsResponse,
   LocationsResponse,
   MarketplaceResponse,
-  StatusResponse
-} from "./types";
+  StatusResponse,
+} from './types';
 
 export class GameEndpoint extends Endpoint {
   async getStatus(): Promise<StatusResponse> {
