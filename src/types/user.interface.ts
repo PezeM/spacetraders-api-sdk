@@ -28,7 +28,7 @@ export interface UserLoan {
   id: string;
   type: LoanType;
   due: string;
-  repaymentAmount: boolean;
+  repaymentAmount: number;
   status: LoanStatus;
 }
 
