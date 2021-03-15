@@ -4,11 +4,11 @@ import {
   AsteroidType,
   AvailableLoanResponse,
   AvailableShipsResponse,
-  LocationInfoResponse,
+  LocationInfoResponse, LocationsDockedShipsResponse,
   LocationsResponse,
   MarketplaceResponse,
-  StatusResponse,
-} from './types';
+  StatusResponse
+} from "./types";
 
 export class GameEndpoint extends Endpoint {
   async getStatus(): Promise<StatusResponse> {
@@ -43,5 +43,9 @@ export class GameEndpoint extends Endpoint {
 
   async getAllActiveFlightPlans(symbol: string): Promise<ActiveFlightPlansResponse> {
     return this.get<ActiveFlightPlansResponse>(`game/systems/${symbol}/flight-plans`);
+  }
+
+  async getLocationsDockedShips(symbol: string): Promise<LocationsDockedShipsResponse> {
+    return this.get<LocationsDockedShipsResponse>(`game/locations/${symbol}/ships`);
   }
 }

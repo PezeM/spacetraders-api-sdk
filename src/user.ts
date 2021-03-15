@@ -5,6 +5,7 @@ import {
   LoanType,
   OrderResponse,
   RegisterUserResponse,
+  SellShipResponse,
   ShipsResponse,
   UserLoan,
   UserResponse,
@@ -53,5 +54,9 @@ export class UserEndpoint extends Endpoint {
 
   async flightPlanInfo(flightPlanId: string): Promise<FlightPlanResponse> {
     return this.get<FlightPlanResponse>(`users/${this.getUsername()}/flight-plans/${flightPlanId}`);
+  }
+
+  async sellShip(shipId: string): Promise<SellShipResponse> {
+    return this.delete<SellShipResponse>(`users/${this.getUsername()}/ships/${shipId}`);
   }
 }

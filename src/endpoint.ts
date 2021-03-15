@@ -2,7 +2,7 @@ import fetch from 'node-fetch';
 import { RequestError } from './requestError';
 import { ISpacetraders } from './types/api.interface';
 
-type RequestMethod = 'POST' | 'GET' | 'PUT';
+type RequestMethod = 'POST' | 'GET' | 'PUT' | 'DELETE';
 
 const API_URL = 'https://api.spacetraders.io';
 
@@ -19,6 +19,10 @@ export abstract class Endpoint {
 
   protected async put<T>(endpoint: string, body?: Record<string, unknown>): Promise<T> {
     return this.makeRequest<T>(endpoint, 'PUT', body);
+  }
+
+  protected async delete<T>(endpoint: string): Promise<T> {
+    return this.makeRequest<T>(endpoint, 'DELETE');
   }
 
   protected wait(time = 1000) {

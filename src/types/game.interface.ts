@@ -19,14 +19,27 @@ export interface Location {
   x: number;
   y: number;
   ansibleProgress?: number;
+  anomaly?: number | string;
+  ships?: LocationDockedShips[];
+}
+
+export interface LocationDockedShips {
+  shipId: string;
+  username: string;
+  shipType: string;
 }
 
 export interface LocationsResponse {
   locations: Location[];
 }
 
+export interface LocationsDockedShipsResponse {
+  location: Location;
+}
+
 export interface LocationInfoResponse {
-  planet: Location;
+  location: Location;
+  dockedShips: number;
 }
 
 export interface Marketplace {
