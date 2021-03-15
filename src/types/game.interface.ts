@@ -54,7 +54,7 @@ export interface PlanetMarketplace extends Location {
 }
 
 export interface MarketplaceResponse {
-  planet: PlanetMarketplace;
+  location: PlanetMarketplace;
 }
 
 export interface PurchaseLocation {
