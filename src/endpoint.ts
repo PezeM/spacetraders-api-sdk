@@ -1,4 +1,5 @@
 import fetch from 'node-fetch';
+import { URL } from 'url';
 import { RequestError } from './requestError';
 import { ISpacetraders } from './types/api.interface';
 
@@ -51,7 +52,7 @@ export abstract class Endpoint {
     }
 
     const request = this.spacetraders.limiter.schedule(() =>
-      fetch(`${API_URL}/${endpoint}`, {
+      fetch(new URL(endpoint, API_URL), {
         method: requestMethod,
         headers,
         body: body ? JSON.stringify(body) : undefined,
