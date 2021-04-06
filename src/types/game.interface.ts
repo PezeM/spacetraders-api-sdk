@@ -47,6 +47,7 @@ export interface Marketplace {
   pricePerUnit: number;
   symbol: GoodType;
   volumePerUnit: number;
+  spread: number;
 }
 
 export interface PlanetMarketplace extends Location {
