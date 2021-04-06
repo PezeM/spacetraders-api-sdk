@@ -2,6 +2,7 @@ import { Endpoint } from './endpoint';
 import {
   FlightPlanResponse,
   GoodType,
+  JettisonCargoResponse,
   LoanType,
   OrderResponse,
   RegisterUserResponse,
@@ -58,5 +59,9 @@ export class UserEndpoint extends Endpoint {
 
   async sellShip(shipId: string): Promise<SellShipResponse> {
     return this.delete<SellShipResponse>(`users/${this.getUsername()}/ships/${shipId}`);
+  }
+
+  async jettisonCargo(shipId: string, good: GoodType, quantity: number): Promise<JettisonCargoResponse> {
+    return this.put<JettisonCargoResponse>(`users/${this.getUsername()}/ships/${shipId}/jettison`, { good, quantity });
   }
 }

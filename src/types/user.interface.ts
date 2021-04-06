@@ -75,3 +75,9 @@ export interface OrderResponse {
 export interface SellShipResponse {
   success: string;
 }
+
+export interface JettisonCargoResponse {
+  good: GoodType;
+  quantityRemaining: number;
+  shipId: string;
+}
