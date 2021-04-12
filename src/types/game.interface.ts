@@ -43,11 +43,13 @@ export interface LocationInfoResponse {
 }
 
 export interface Marketplace {
+  symbol: GoodType;
   quantityAvailable: number;
   pricePerUnit: number;
-  symbol: GoodType;
   volumePerUnit: number;
   spread: number;
+  sellPricePerUnit: number;
+  purchasePricePerUnit: number;
 }
 
 export interface PlanetMarketplace extends Location {
