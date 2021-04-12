@@ -81,3 +81,8 @@ export interface JettisonCargoResponse {
   quantityRemaining: number;
   shipId: string;
 }
+
+export interface TransferCargoResponse {
+  fromShip: UserShip;
+  toShip: UserShip;
+}

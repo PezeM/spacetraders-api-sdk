@@ -8,6 +8,7 @@ import {
   RegisterUserResponse,
   SellShipResponse,
   ShipsResponse,
+  TransferCargoResponse,
   UserLoan,
   UserResponse,
 } from './types';
@@ -63,5 +64,18 @@ export class UserEndpoint extends Endpoint {
 
   async jettisonCargo(shipId: string, good: GoodType, quantity: number): Promise<JettisonCargoResponse> {
     return this.put<JettisonCargoResponse>(`users/${this.getUsername()}/ships/${shipId}/jettison`, { good, quantity });
+  }
+
+  async transferCargo(
+    fromShipId: string,
+    toShipId: string,
+    good: GoodType,
+    quantity: number,
+  ): Promise<TransferCargoResponse> {
+    return this.put<TransferCargoResponse>(`users/${this.getUsername()}/ships/${fromShipId}/transfer`, {
+      good,
+      quantity,
+      toShipId,
+    });
   }
 }
