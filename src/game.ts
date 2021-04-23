@@ -4,11 +4,13 @@ import {
   AsteroidType,
   AvailableLoanResponse,
   AvailableShipsResponse,
+  AvailableStructureResponse,
   LocationInfoResponse,
   LocationsDockedShipsResponse,
   LocationsResponse,
   MarketplaceResponse,
   StatusResponse,
+  SystemsResponse,
 } from './types';
 
 export class GameEndpoint extends Endpoint {
@@ -25,9 +27,15 @@ export class GameEndpoint extends Endpoint {
     return this.get<AvailableLoanResponse>('game/loans');
   }
 
-  async getLocations(symbol: string, type?: AsteroidType): Promise<LocationsResponse> {
-    const url = type ? `game/systems/${symbol}/locations?type=${type}` : `game/systems/${symbol}/locations`;
+  async getLocations(symbol: string, type?: AsteroidType, allowsConstruction?: boolean): Promise<LocationsResponse> {
+    const url = type
+      ? `game/systems/${symbol}/locations?type=${type}&allowsConstruction=${allowsConstruction}`
+      : `game/systems/${symbol}/locations`;
     return this.get<LocationsResponse>(url);
+  }
+
+  async getSystems(): Promise<SystemsResponse> {
+    return this.get<SystemsResponse>('game/systems');
   }
 
   async getLocationInfo(symbol: string): Promise<LocationInfoResponse> {
@@ -48,5 +56,9 @@ export class GameEndpoint extends Endpoint {
 
   async getLocationsDockedShips(symbol: string): Promise<LocationsDockedShipsResponse> {
     return this.get<LocationsDockedShipsResponse>(`game/locations/${symbol}/ships`);
+  }
+
+  async getAvailableStructures(): Promise<AvailableStructureResponse> {
+    return this.get<AvailableStructureResponse>('game/structures');
   }
 }

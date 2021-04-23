@@ -86,3 +86,42 @@ export interface TransferCargoResponse {
   fromShip: UserShip;
   toShip: UserShip;
 }
+
+export interface StructureDetailsResponse {
+  structure: Structure;
+}
+
+export interface Structure {
+  id: string;
+  type: string;
+  location: string;
+  status: string;
+  active: boolean;
+  ownedBy: {
+    username?: string;
+  };
+  inventory: Pick<Cargo, 'quantity' | 'good'>[];
+  consumes: GoodType[];
+  produces: GoodType[];
+}
+
+export interface BaseStructureTransferResponse {
+  ship: {
+    cargo: Cargo[];
+  };
+  structure: {
+    cargo: Cargo[];
+  };
+}
+
+export interface StructureDepositResponse extends BaseStructureTransferResponse {
+  deposit: Cargo;
+}
+
+export interface StructureTransferResponse extends BaseStructureTransferResponse {
+  transfer: Cargo;
+}
+
+export interface GetStructuresResponse {
+  structures: Structure[];
+}

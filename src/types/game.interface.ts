@@ -113,3 +113,26 @@ export interface ActiveFlightPlan {
 export interface ActiveFlightPlansResponse {
   flightPlans: ActiveFlightPlan[];
 }
+
+export interface System {
+  symbol: string;
+  name: string;
+  locations: Location[];
+}
+
+export interface SystemsResponse {
+  systems: System[];
+}
+
+export interface AvailableStructure {
+  allowedLocationTypes: string[];
+  consumes: GoodType[];
+  price: number;
+  name: string;
+  produces: GoodType[];
+  symbol: string;
+}
+
+export interface AvailableStructureResponse {
+  structures: AvailableStructure[];
+}

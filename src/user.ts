@@ -1,5 +1,6 @@
 import { Endpoint } from './endpoint';
 import {
+  StructureDetailsResponse,
   FlightPlanResponse,
   GoodType,
   JettisonCargoResponse,
@@ -8,9 +9,12 @@ import {
   RegisterUserResponse,
   SellShipResponse,
   ShipsResponse,
+  StructureDepositResponse,
   TransferCargoResponse,
   UserLoan,
   UserResponse,
+  StructureTransferResponse,
+  GetStructuresResponse,
 } from './types';
 
 export class UserEndpoint extends Endpoint {
@@ -77,5 +81,43 @@ export class UserEndpoint extends Endpoint {
       quantity,
       toShipId,
     });
+  }
+
+  async createStructure(location: string, type: string): Promise<StructureDetailsResponse> {
+    return this.post<StructureDetailsResponse>(`users/${this.getUsername()}/structures`, { location, type });
+  }
+
+  async depositGoodsToStructure(
+    structureId: string,
+    shipId: string,
+    good: GoodType,
+    quantity: number,
+  ): Promise<StructureDepositResponse> {
+    return this.post<StructureDepositResponse>(`users/${this.getUsername()}/structures/${structureId}/deposit`, {
+      shipId,
+      good,
+      quantity,
+    });
+  }
+
+  async viewStructureDetails(structureId: string): Promise<StructureDetailsResponse> {
+    return this.get<StructureDetailsResponse>(`users/${this.getUsername()}/structures/${structureId}`);
+  }
+
+  async transferStructureGoods(
+    structureId: string,
+    shipId: string,
+    good: GoodType,
+    quantity: number,
+  ): Promise<StructureTransferResponse> {
+    return this.post<StructureTransferResponse>(`users/${this.getUsername()}/structures/${structureId}/transfer`, {
+      shipId,
+      good,
+      quantity,
+    });
+  }
+
+  async getStructures(): Promise<GetStructuresResponse> {
+    return this.get<GetStructuresResponse>(`users/${this.getUsername()}/structures`);
   }
 }
