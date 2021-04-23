@@ -52,6 +52,11 @@ export interface ShipsResponse {
   ships: UserShip[];
 }
 
+export interface ShipBuyResponse {
+  credits: number;
+  ship: UserShip;
+}
+
 export interface CreatedUser {
   id: string;
   username: string;

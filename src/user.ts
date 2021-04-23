@@ -15,8 +15,8 @@ import {
   UserResponse,
   StructureTransferResponse,
   GetStructuresResponse,
-  LoanResponse,
-} from './types';
+  LoanResponse, ShipBuyResponse
+} from "./types";
 
 export class UserEndpoint extends Endpoint {
   async registerUser(username: string): Promise<RegisterUserResponse> {
@@ -43,8 +43,8 @@ export class UserEndpoint extends Endpoint {
     return this.get<ShipsResponse>(`users/${this.getUsername()}/ships`);
   }
 
-  async buyShip(location: string, shipType: string): Promise<UserResponse> {
-    return this.post<UserResponse>(`users/${this.getUsername()}/ships`, { location, type: shipType });
+  async buyShip(location: string, shipType: string): Promise<ShipBuyResponse> {
+    return this.post<ShipBuyResponse>(`users/${this.getUsername()}/ships`, { location, type: shipType });
   }
 
   async buyGood(shipId: string, quantity: number, good: GoodType): Promise<OrderResponse> {
