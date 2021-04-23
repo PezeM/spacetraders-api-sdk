@@ -1,6 +1,6 @@
 {
   "name": "spacetraders-api-sdk",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "",
   "main": "lib/index.js",
   "module": "lib/index.es.js",
