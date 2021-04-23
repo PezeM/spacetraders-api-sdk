@@ -14,8 +14,8 @@ import {
   UserLoan,
   UserResponse,
   StructureTransferResponse,
-  GetStructuresResponse,
-} from './types';
+  GetStructuresResponse, LoanResponse
+} from "./types";
 
 export class UserEndpoint extends Endpoint {
   async registerUser(username: string): Promise<RegisterUserResponse> {
@@ -26,8 +26,8 @@ export class UserEndpoint extends Endpoint {
     return this.get<UserResponse>(`users/${this.getUsername()}`);
   }
 
-  async requestLoan(type: LoanType): Promise<UserResponse> {
-    return this.post<UserResponse>(`users/${this.getUsername()}/loans`, { type });
+  async requestLoan(type: LoanType): Promise<LoanResponse> {
+    return this.post<LoanResponse>(`users/${this.getUsername()}/loans`, { type });
   }
 
   async getLoans(): Promise<UserLoan> {

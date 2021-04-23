@@ -32,6 +32,11 @@ export interface UserLoan {
   status: LoanStatus;
 }
 
+export interface LoanResponse {
+  credits: number;
+  loan: UserLoan;
+}
+
 export interface User {
   username: string;
   credits: number;
