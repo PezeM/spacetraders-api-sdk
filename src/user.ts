@@ -15,8 +15,9 @@ import {
   UserResponse,
   StructureTransferResponse,
   GetStructuresResponse,
-  LoanResponse, ShipBuyResponse
-} from "./types";
+  LoanResponse,
+  ShipBuyResponse,
+} from './types';
 
 export class UserEndpoint extends Endpoint {
   async registerUser(username: string): Promise<RegisterUserResponse> {
