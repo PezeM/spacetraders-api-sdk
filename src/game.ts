@@ -39,7 +39,7 @@ export class GameEndpoint extends Endpoint {
   }
 
   async getLocationInfo(symbol: string): Promise<LocationInfoResponse> {
-    return this.get<LocationInfoResponse>(`game/locations/${symbol}`);
+    return this.get<LocationInfoResponse>(`game/locations/${symbol}/ships`);
   }
 
   async getLocationMarketplace(symbol: string): Promise<MarketplaceResponse> {
