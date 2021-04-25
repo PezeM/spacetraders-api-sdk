@@ -26,7 +26,6 @@ jobs:
       - uses: borales/actions-yarn@v2.0.0
         with:
           cmd: build # will run `yarn build` command
-      - uses: borales/actions-yarn@v2.0.0
       - uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
