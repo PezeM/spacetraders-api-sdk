@@ -61,4 +61,8 @@ export class GameEndpoint extends Endpoint {
   async getAvailableStructures(): Promise<AvailableStructureResponse> {
     return this.get<AvailableStructureResponse>('game/structures');
   }
+
+  async getLeaderboard() {
+    return this.get<AvailableStructureResponse>('game/leaderboard/net-worth');
+  }
 }

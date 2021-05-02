@@ -136,3 +136,14 @@ export interface AvailableStructure {
 export interface AvailableStructureResponse {
   structures: AvailableStructure[];
 }
+
+export interface UserNetWorth {
+  netWorth: number;
+  rank: number;
+  username: string;
+}
+
+export interface LeaderboardResponse {
+  netWorth: UserNetWorth[];
+  userNetWorth: UserNetWorth[];
+}
