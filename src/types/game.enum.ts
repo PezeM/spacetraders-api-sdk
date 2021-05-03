@@ -8,7 +8,7 @@ export enum AsteroidType {
   MOON = 'MOON',
   ASTEROID = 'ASTEROID',
   GAS_GIANT = 'GAS_GIANT',
-  WORMHOLE = 'WORMHOLE'
+  WORMHOLE = 'WORMHOLE',
 }
 
 export enum GoodType {
