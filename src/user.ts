@@ -122,4 +122,8 @@ export class UserEndpoint extends Endpoint {
   async getStructures(): Promise<GetStructuresResponse> {
     return this.get<GetStructuresResponse>(`users/${this.getUsername()}/structures`);
   }
+
+  async warpJump(shipId: string): Promise<any> {
+    return this.post<any>(`users/${this.getUsername()}/warp-jump`, { shipId });
+  }
 }
