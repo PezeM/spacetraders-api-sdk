@@ -18,9 +18,18 @@ export interface Location {
   name: string;
   x: number;
   y: number;
+  allowsConstruction: boolean;
   ansibleProgress?: number;
   anomaly?: number | string;
   ships?: LocationDockedShips[];
+  messages?: string[];
+  structures?: LocationStructures[];
+}
+
+export interface LocationStructures {
+  id: string;
+  type: string;
+  location: string;
 }
 
 export interface LocationDockedShips {
